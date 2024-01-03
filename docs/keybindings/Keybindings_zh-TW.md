@@ -227,6 +227,7 @@ _說明：`<c-b>` 表示 Ctrl+B、`<a-b>` 表示 Alt+B，`B`表示 Shift+B_
   <kbd>&lt;space&gt;</kbd>: 切換檔案是否包含在補丁中
   <kbd>a</kbd>: 切換所有檔案是否包含在補丁中
   <kbd>&lt;enter&gt;</kbd>: 輸入檔案以將選定的行添加至補丁（或切換目錄折疊）
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>`</kbd>: 切換檔案樹狀視圖
   <kbd>/</kbd>: 開始搜尋
 </pre>
@@ -303,6 +304,7 @@ _說明：`<c-b>` 表示 Ctrl+B、`<a-b>` 表示 Alt+B，`B`表示 Shift+B_
   <kbd>S</kbd>: 檢視收藏選項
   <kbd>a</kbd>: 全部預存/取消預存
   <kbd>&lt;enter&gt;</kbd>: 選擇檔案中的單個程式碼塊/行，或展開/折疊目錄
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>g</kbd>: 檢視上游重設選項
   <kbd>D</kbd>: 檢視重設選項
   <kbd>`</kbd>: 切換檔案樹狀視圖

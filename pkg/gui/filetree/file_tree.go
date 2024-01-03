@@ -28,6 +28,7 @@ type ITree[T any] interface {
 	GetItem(index int) types.HasUrn
 	SetTree()
 	IsCollapsed(path string) bool
+	SetCollapse(path string, collapse bool)
 	ToggleCollapsed(path string)
 	CollapsedPaths() *CollapsedPaths
 }
@@ -161,6 +162,10 @@ func (self *FileTree) SetTree() {
 
 func (self *FileTree) IsCollapsed(path string) bool {
 	return self.collapsedPaths.IsCollapsed(path)
+}
+
+func (self *FileTree) SetCollapse(path string, collapse bool) {
+	self.collapsedPaths.SetCollapse(path, collapse)
 }
 
 func (self *FileTree) ToggleCollapsed(path string) {

@@ -727,6 +727,10 @@
               "type": "string",
               "default": "\u003center\u003e"
             },
+            "toggleCollapseAll": {
+              "type": "string",
+              "default": "\u003ca-enter\u003e"
+            },
             "confirm": {
               "type": "string",
               "default": "\u003center\u003e"

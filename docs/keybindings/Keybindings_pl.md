@@ -164,6 +164,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>S</kbd>: Wyświetl opcje schowka
   <kbd>a</kbd>: Przełącz stan poczekalni wszystkich
   <kbd>&lt;enter&gt;</kbd>: Zatwierdź pojedyncze linie
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>g</kbd>: View upstream reset options
   <kbd>D</kbd>: Wyświetl opcje resetu
   <kbd>`</kbd>: Toggle file tree view
@@ -183,6 +184,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>&lt;space&gt;</kbd>: Toggle file included in patch
   <kbd>a</kbd>: Toggle all files included in patch
   <kbd>&lt;enter&gt;</kbd>: Enter file to add selected lines to the patch (or toggle directory collapsed)
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>`</kbd>: Toggle file tree view
   <kbd>/</kbd>: Search the current view by text
 </pre>

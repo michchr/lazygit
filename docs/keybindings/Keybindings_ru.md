@@ -260,6 +260,7 @@ _Связки клавиш_
   <kbd>&lt;space&gt;</kbd>: Переключить файлы включённые в патч
   <kbd>a</kbd>: Переключить все файлы, включённые в патч
   <kbd>&lt;enter&gt;</kbd>: Введите файл, чтобы добавить выбранные строки в патч (или свернуть каталог переключения)
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>`</kbd>: Переключить вид дерева файлов
   <kbd>/</kbd>: Найти
 </pre>
@@ -334,6 +335,7 @@ _Связки клавиш_
   <kbd>S</kbd>: Просмотреть параметры хранилища
   <kbd>a</kbd>: Все проиндексированные/непроиндексированные
   <kbd>&lt;enter&gt;</kbd>: Проиндексировать отдельные части/строки для файла или свернуть/развернуть для каталога
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>g</kbd>: Просмотреть параметры сброса upstream-ветки
   <kbd>D</kbd>: Просмотреть параметры сброса
   <kbd>`</kbd>: Переключить вид дерева файлов

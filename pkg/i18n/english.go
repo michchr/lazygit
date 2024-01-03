@@ -350,6 +350,7 @@ type TranslationSet struct {
 	NoPatchError                        string
 	EmptyPatchError                     string
 	EnterFile                           string
+	ToggleCollapseAll                   string
 	ExitCustomPatchBuilder              string
 	EnterUpstream                       string
 	InvalidUpstream                     string
@@ -1168,6 +1169,7 @@ func EnglishTranslationSet() TranslationSet {
 		NoPatchError:                        "No patch created yet. To start building a patch, use 'space' on a commit file or enter to add specific lines",
 		EmptyPatchError:                     "Patch is still empty. Add some files or lines to your patch first.",
 		EnterFile:                           "Enter file to add selected lines to the patch (or toggle directory collapsed)",
+		ToggleCollapseAll:                   "Toggle directory collapse all (applies parent directory's toggle recursively to all children)",
 		ExitCustomPatchBuilder:              `Exit custom patch builder`,
 		EnterUpstream:                       `Enter upstream as '<remote> <branchname>'`,
 		InvalidUpstream:                     "Invalid upstream. Must be in the format '<remote> <branchname>'",

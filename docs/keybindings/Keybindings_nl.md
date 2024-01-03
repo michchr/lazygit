@@ -64,6 +64,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>S</kbd>: Bekijk stash opties
   <kbd>a</kbd>: Toggle staged alle
   <kbd>&lt;enter&gt;</kbd>: Stage individuele hunks/lijnen
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>g</kbd>: Bekijk upstream reset opties
   <kbd>D</kbd>: Bekijk reset opties
   <kbd>`</kbd>: Toggle bestandsboom weergave
@@ -123,6 +124,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>&lt;space&gt;</kbd>: Toggle bestand inbegrepen in patch
   <kbd>a</kbd>: Toggle all files included in patch
   <kbd>&lt;enter&gt;</kbd>: Enter bestand om geselecteerde regels toe te voegen aan de patch
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>`</kbd>: Toggle bestandsboom weergave
   <kbd>/</kbd>: Start met zoeken
 </pre>

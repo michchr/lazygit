@@ -55,6 +55,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>&lt;space&gt;</kbd>: Toggle file included in patch
   <kbd>a</kbd>: Toggle all files included in patch
   <kbd>&lt;enter&gt;</kbd>: Enter file to add selected lines to the patch (or toggle directory collapsed)
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>`</kbd>: Toggle file tree view
   <kbd>/</kbd>: Search the current view by text
 </pre>
@@ -129,6 +130,7 @@ _Legend: `<c-b>` means ctrl+b, `<a-b>` means alt+b, `B` means shift+b_
   <kbd>S</kbd>: View stash options
   <kbd>a</kbd>: Stage/unstage all
   <kbd>&lt;enter&gt;</kbd>: Stage individual hunks/lines for file, or collapse/expand for directory
+  <kbd>&lt;a-enter&gt;</kbd>: Toggle directory collapse all (applies parent directory's toggle recursively to all children)
   <kbd>g</kbd>: View upstream reset options
   <kbd>D</kbd>: View reset options
   <kbd>`</kbd>: Toggle file tree view

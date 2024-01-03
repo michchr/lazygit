@@ -150,6 +150,10 @@ func (gui *Gui) getRandomTip() string {
 			formattedKey(config.Universal.GoInto),
 		),
 		fmt.Sprintf(
+			"To collapse/expand directory and apply to all children, press '%s'",
+			formattedKey(config.Universal.ToggleCollapseAll),
+		),
+		fmt.Sprintf(
 			"You can append your staged changes to an older commit by pressing '%s' on that commit",
 			formattedKey(config.Commits.AmendToCommit),
 		),
