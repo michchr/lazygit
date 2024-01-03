@@ -91,6 +91,10 @@ func (self *CommitFileTree) IsCollapsed(path string) bool {
 	return self.collapsedPaths.IsCollapsed(path)
 }
 
+func (self *CommitFileTree) SetCollapse(path string, collapse bool) {
+	self.collapsedPaths.SetCollapse(path, collapse)
+}
+
 func (self *CommitFileTree) ToggleCollapsed(path string) {
 	self.collapsedPaths.ToggleCollapsed(path)
 }

@@ -63,6 +63,11 @@ func (self *CommitFilesController) GetKeybindings(opts types.KeybindingsOpts) []
 			Description: self.c.Tr.EnterFile,
 		},
 		{
+			Key:         opts.GetKey(opts.Config.Universal.ToggleCollapseAll),
+			Handler:     self.checkSelected(self.toggleCollapseAll),
+			Description: self.c.Tr.ToggleCollapseAll,
+		},
+		{
 			Key:         opts.GetKey(opts.Config.Files.ToggleTreeView),
 			Handler:     self.toggleTreeView,
 			Description: self.c.Tr.ToggleTreeView,
@@ -297,6 +302,33 @@ func (self *CommitFilesController) enterCommitFile(node *filetree.CommitFileNode
 	}
 
 	return enterTheFile()
+}
+
+func (self *CommitFilesController) toggleCollapseAll(node *filetree.CommitFileNode) error {
+	if node == nil {
+		return nil
+	}
+
+	var setCollapseChildren func(node *filetree.CommitFileNode, collapse bool)
+	setCollapseChildren = func(node *filetree.CommitFileNode, collapse bool) {
+		for _, child := range node.Children {
+			if child.File == nil {
+				setCollapseChildren(filetree.NewCommitFileNode(child), collapse)
+				self.context().CommitFileTreeViewModel.SetCollapse(child.GetPath(), collapse)
+			}
+		}
+	}
+
+	if node.File == nil {
+		self.context().CommitFileTreeViewModel.ToggleCollapsed(node.GetPath())
+		setCollapseChildren(node, self.context().CommitFileTreeViewModel.IsCollapsed(node.GetPath()))
+	}
+
+	if err := self.c.PostRefreshUpdate(self.context()); err != nil {
+		self.c.Log.Error(err)
+	}
+
+	return nil
 }
 
 func (self *CommitFilesController) handleToggleCommitFileDirCollapsed(node *filetree.CommitFileNode) error {

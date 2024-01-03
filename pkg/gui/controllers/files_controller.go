@@ -106,6 +106,11 @@ func (self *FilesController) GetKeybindings(opts types.KeybindingsOpts) []*types
 			Description: self.c.Tr.FileEnter,
 		},
 		{
+			Key:         opts.GetKey(opts.Config.Universal.ToggleCollapseAll),
+			Handler:     self.toggleCollapseAll,
+			Description: self.c.Tr.ToggleCollapseAll,
+		},
+		{
 			Key:         opts.GetKey(opts.Config.Commits.ViewResetOptions),
 			Handler:     self.createResetToUpstreamMenu,
 			Description: self.c.Tr.ViewResetToUpstreamOptions,
@@ -456,6 +461,34 @@ func (self *FilesController) EnterFile(opts types.OnFocusOpts) error {
 	}
 
 	return self.c.PushContext(self.c.Contexts().Staging, opts)
+}
+
+func (self *FilesController) toggleCollapseAll() error {
+	node := self.context().GetSelected()
+	if node == nil {
+		return nil
+	}
+
+	var setCollapseChildren func(node *filetree.FileNode, collapse bool)
+	setCollapseChildren = func(node *filetree.FileNode, collapse bool) {
+		for _, child := range node.Children {
+			if child.File == nil {
+				setCollapseChildren(filetree.NewFileNode(child), collapse)
+				self.context().FileTreeViewModel.SetCollapse(child.GetPath(), collapse)
+			}
+		}
+	}
+
+	if node.File == nil {
+		self.context().FileTreeViewModel.ToggleCollapsed(node.GetPath())
+		setCollapseChildren(node, self.context().FileTreeViewModel.IsCollapsed(node.GetPath()))
+	}
+
+	if err := self.c.PostRefreshUpdate(self.c.Contexts().Files); err != nil {
+		self.c.Log.Error(err)
+	}
+
+	return nil
 }
 
 func (self *FilesController) toggleStagedAll() error {

@@ -313,6 +313,7 @@ type KeybindingUniversalConfig struct {
 	OptionMenuAlt1               string   `yaml:"optionMenu-alt1"`
 	Select                       string   `yaml:"select"`
 	GoInto                       string   `yaml:"goInto"`
+	ToggleCollapseAll            string   `yaml:"toggleCollapseAll"`
 	Confirm                      string   `yaml:"confirm"`
 	ConfirmInEditor              string   `yaml:"confirmInEditor"`
 	Remove                       string   `yaml:"remove"`
@@ -709,6 +710,7 @@ func GetDefaultConfig() *UserConfig {
 				OptionMenuAlt1:               "?",
 				Select:                       "<space>",
 				GoInto:                       "<enter>",
+				ToggleCollapseAll:            "<a-enter>",
 				Confirm:                      "<enter>",
 				ConfirmInEditor:              "<a-enter>",
 				Remove:                       "d",

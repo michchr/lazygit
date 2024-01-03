@@ -25,8 +25,16 @@ func (self *CollapsedPaths) IsCollapsed(path string) bool {
 	return self.collapsedPaths.Includes(path)
 }
 
+func (self *CollapsedPaths) SetCollapse(path string, collapse bool) {
+	if collapse {
+		self.collapsedPaths.Add(path)
+	} else {
+		self.collapsedPaths.Remove(path)
+	}
+}
+
 func (self *CollapsedPaths) Collapse(path string) {
-	self.collapsedPaths.Add(path)
+	self.SetCollapse(path, true)
 }
 
 func (self *CollapsedPaths) ToggleCollapsed(path string) {
