@@ -4,12 +4,14 @@ import (
 	"testing"
 
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestGetCommitFilesFromFilenames(t *testing.T) {
 	tests := []struct {
 		testName string
+		runner   oscommands.ICmdObjRunner
 		input    string
 		output   []*models.CommitFile
 	}{
@@ -64,7 +66,14 @@ func TestGetCommitFilesFromFilenames(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.testName, func(t *testing.T) {
-			result := getCommitFilesFromFilenames(test.input)
+			cmd := oscommands.NewDummyCmdObjBuilder(test.runner)
+
+			loader := &CommitFileLoader{
+				GitCommon: buildGitCommon(commonDeps{}),
+				cmd:       cmd,
+			}
+
+			result := loader.GetCommitFilesFromFilenames(test.input)
 			assert.Equal(t, test.output, result)
 		})
 	}

@@ -115,6 +115,7 @@ func (c *FileLoader) gitStatus(opts GitStatusOptions) ([]FileStatus, error) {
 
 	splitLines := strings.Split(statusLines, "\x00")
 	response := []FileStatus{}
+	worktreePath := c.GitCommon.repoPaths.WorktreePath() + "/"
 
 	for i := 0; i < len(splitLines); i++ {
 		original := splitLines[i]
@@ -126,13 +127,13 @@ func (c *FileLoader) gitStatus(opts GitStatusOptions) ([]FileStatus, error) {
 		status := FileStatus{
 			StatusString: original,
 			Change:       original[:2],
-			Name:         original[3:],
+			Name:         worktreePath + original[3:],
 			PreviousName: "",
 		}
 
 		if strings.HasPrefix(status.Change, "R") {
 			// if a line starts with 'R' then the next line is the original file.
-			status.PreviousName = splitLines[i+1]
+			status.PreviousName = worktreePath + splitLines[i+1]
 			status.StatusString = fmt.Sprintf("%s %s -> %s", status.Change, status.PreviousName, status.Name)
 			i++
 		}
